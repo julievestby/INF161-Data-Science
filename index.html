@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bike traffic predictions over Nygårdsbroen</title>
+  </head>
+
+  <body>
+    <div class='login'>
+      <h1>Bike traffic predictions over Nygårdsbroen</h1>
+
+      <form action="{{url_for('predict')}}" method='post'>
+
+      <input type="text" name="Globalstraling" placeholder="Globalstraling" required="required"> <br>
+      <input type="text" name="Solskinstid" placeholder="Solskinstid" required="required"> <br>
+      <input type="text" name="Lufttemperatur" placeholder="Lufttemperatur" required="required"> <br>
+      <input type="text" name="Vindstyrke" placeholder="Vindstyrke" required="required"> <br>
+      <input type="text" name="Year" placeholder="Year" required="required"> <br>
+      <input type="text" name="Month" placeholder="Month" required="required"> <br>
+      <input type="text" name="Day" placeholder="Day" required="required"> <br>
+      <input type="text" name="Hour" placeholder="Hour" required="required"> <br>
+
+
+      <label for="Weekdays">Which weekday is it?:</label>
+      <select name="Weekdays" id="Weekdays">
+        <option value="0">Monday</option>
+        <option value="1">Tuesday</option>
+        <option value="2">Wednesday</option>
+        <option value="3">Thursday</option>
+        <option value="4">Friday</option>
+        <option value="5">Saturday</option>
+        <option value="6">Sunday</option>
+      </select>
+
+      <br>
+
+      <label for="Weekends">Is it weekend?:</label>
+      <select name="Weekends" id="Weekends">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+
+      <br>
+
+      <label for="Season">Which season is it?:</label>
+      <select name="Season" id="Season">
+        <option value="0">Winter</option>
+        <option value="1">Spring</option>
+        <option value="2">Summer</option>
+        <option value="3">Fall</option>
+      </select>
+    
+    <br>
+    <br>
+
+	<button type='submit' value='Submit'>Predict</button>
+	<button type='reset' value='Reset'>Reset</button>
+      </form>
+
+      <br>
+      {{prediction_text}}
+      
+    </div>
+  </body>
+</html>
